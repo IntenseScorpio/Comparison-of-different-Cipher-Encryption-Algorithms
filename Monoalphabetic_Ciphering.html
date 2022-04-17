@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<link rel="stylesheet" href="Monoalphabatic_Ciphering.css">
+
+</head>
+
+
+
+<body>
+	<div class="container" id="banner">
+		<figure class="text-center">
+			<blockquote class="blockquote">
+				<p style="font-size: xxx-large;">Text Encryption and Decryption </p>
+			</blockquote>
+			<figcaption class="blockquote-footer" style="font-size: xx-large;">
+				based on Monoalphabatic Ciphering
+			</figcaption>
+		</figure>
+	</div>
+	
+	<div id="main" class="card" style="width: 18rem;">
+		<div class="card-body">
+			<h5 class="card-title">Enter Text</h5>
+			<br>
+			<input type="text" id="textbox" autofocus="true"></input>
+
+			<br>
+
+
+			<p>Enter Text to encrypt or decrypt</p>
+
+			<textarea rows="1" cols="23" id="Key"></textarea><br>
+			<button type="button" class="btn btn-primary" id="btn" style="margin-top: 5%;" >Encrypt</button>
+			<button type="button" class="btn btn-primary" id="debtn" style="margin-top: 5%; "> Decrypt </button>
+			<br>
+
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<script>
+			var shuffledArr;
+			let alphabetArr = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+
+			function shuffle(array) {
+				var startTime = performance.now()
+				let shuffledArray = array.slice(0, array.length)
+				var currentIndex = shuffledArray.length;
+				var temporaryValue, randomIndex;
+
+				while (0 !== currentIndex) {
+					randomIndex = Math.floor(Math.random() * currentIndex);
+					currentIndex -= 1;
+
+					temporaryValue = shuffledArray[currentIndex];
+					shuffledArray[currentIndex] = shuffledArray[randomIndex];
+					shuffledArray[randomIndex] = temporaryValue;
+				}
+
+				return shuffledArray;
+				document.getElementsByName('output')[0].value = decstring;
+				var endTime = performance.now()
+				console.log(`Call to encode ${endTime - startTime} milliseconds`)
+			}
+
+			function cipher() {
+				var startTime = performance.now()
+
+                shuffledArr = shuffle(alphabetArr);
+				document.getElementById("Key").innerHTML = shuffledArr.join().replace(/,/g, '')
+
+				var textArr = document.getElementById("textbox").value.split("");
+				for (let k = 0; k < textArr.length; k++) {
+					if ((textArr[k] == ' ') || (textArr[k] == '\t') || (textArr[k] == '\n' || alphabetArr.indexOf(textArr[k].toUpperCase()) == -1)) {
+						continue;
+
+					} else
+						textArr[k] = shuffledArr[alphabetArr.indexOf(textArr[k].toUpperCase())];
+				}
+				document.getElementById("result").innerHTML = textArr.join().replace(/,/g, '')
+				var endTime = performance.now()
+				console.log(`Call to encode ${endTime - startTime} milliseconds`)
+				var t = startTime - endTime;
+				document.getElementById("time").textContent = t;
+			}
+
+
+			function decipher() {
+				var dstartTime = performance.now()
+
+				var textArr = document.getElementById("result").value.split("");
+				for (let k = 0; k < textArr.length; k++) {
+					if ((textArr[k] == ' ') || (textArr[k] == '\t') || (textArr[k] == '\n' || alphabetArr.indexOf(textArr[k].toUpperCase()) == -1)) {
+						continue;
+
+					} else
+						textArr[k] = alphabetArr[shuffledArr.indexOf(textArr[k].toUpperCase())];
+				} document.getElementById("result").innerHTML = textArr.join().replace(/,/g, '')
+			}
+
+
+			document.getElementById("btn").onclick = function () {
+				cipher();
+			}
+
+			document.getElementById("debtn").onclick = function () {
+				decipher();
+			}
+			document.getElementsByName('output')[0].value = decstring;
+			var dendTime = performance.now()
+				console.log(`Call to encode ${dendTime - dstartTime} milliseconds`)
+				var dt = dstartTime - dendTime;
+				document.getElementById("time").textContent = dt;
+
+		</script>
+
+	</div>
+
+	<div class="footer">
+
+		<div class="card-group" id="op">
+			<div class="card text-center" style="width: 18rem;">
+				<div class="card-body" id="EncodeO">
+					<label for="output" style="font-size: x-large;">Encoded text:--</label>
+					<textarea id="result" class="form-control" rows="1"></textarea>
+				</div>
+			</div>
+
+
+			<div class="card text-center" style="width: 18rem;">
+				<div class="card-body" id="xyz">
+					<label for="time" style="font-size: x-large;">Time</label>
+					<div class="card-body" id="time">
+					</div>
+				</div>
+
+
+
+			</div>
+
+
+
+</body>
+
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<!--       
+
+<div class="footer">
+	     <h5 class="card-title">Result</h5>
+	     <textarea rows="4" cols="100" id="result"></textarea>
+   </div>
+	
+    <div class="card text-center" style="width: 18rem;">
+	    <div class="card-body" id="xyz">
+		    <label for="time" style="font-size: x-large;">Time</label>                 
+			<div class="card-body" id="time">
+            </div>
+		</div>
+	</div>
+</div>                      
+
+-->

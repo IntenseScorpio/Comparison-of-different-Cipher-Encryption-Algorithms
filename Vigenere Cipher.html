@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js">
+    </script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container" id="banner">
+        <figure class="text-center">
+            <blockquote class="blockquote">
+                <p style="font-size: xxx-large;">Text Encryption and Decryption </p>
+            </blockquote>
+            <figcaption class="blockquote-footer" style="font-size: xx-large;">
+                based on Vigenere-Cipher
+            </figcaption>
+        </figure>
+    </div>
+
+
+
+    <div class="container-lg" id="main">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Enter Text </h5>
+                <p class="card-text">Enter text to encrypt or decrypt</p>
+                <input type="text" id="inputTextVigenere" autofocus="true"></input>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Enter shift </h5>
+                <input type="text" id="vigenereKey"></input>
+            </div>
+
+
+
+
+
+
+            <button onclick="vigenereCipher(false)" style="margin: 2%;" class="btn btn-primary"> Encrypt </button>
+            <button onclick="vigenereCipher(true)" style="margin: 2%;" class="btn btn-primary"> Decrypt </button>
+            <script src="Vigenere Cipher.js"></script>
+
+
+
+
+
+
+        </div>
+    </div>
+
+    <div class="footer">
+     
+        <div class="card-group" id="op">
+			<div class="card text-center" style="width: 18rem;">
+				<div class="card-body" id="EncodeO">
+					<label for="output" style="font-size: x-large;">Encoded text:--</label>
+                    <textarea id="outputTextVigenere" class="form-control" rows="3"></textarea>
+				</div>
+			</div>
+			
+        <div class="card text-center" style="width: 18rem;">
+            <div class="card-body" id="xyz">
+                <label for="time" style="font-size: x-large;">Time</label>
+                <div class="card-body" id="time">
+                </div>
+            </div>
+
+    </div>
+</body>
+
+</html>
+
+
+
+
+<!--
+   <div class="card" style="width: 18rem;" style="float: left;">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <div>
+                        <div class="card-group" id="op" >
+                            <div class="card text-center" style="width: 50rem;">
+                                <textarea id="outputTextVigenere" class="form-control" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="card" style="width: 18rem;" style= "margin-left: 50%;">
+            <ul class="list-group list-group-flush">
+                <div class="time" >
+                    <textarea id="time" class="form-control" rows="3"></textarea>
+                </div>
+            </ul>
+        </div>
+    </div>
+</div> -->
